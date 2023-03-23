@@ -12,36 +12,10 @@ namespace TLsaPPurePuzzles
             int totalLength = 4;
             bool cross = false;
 
-            //            2 - 1 Write a program that produces the following shape:
-            //  ########
-            //   ######
-            //    ####
-            //     ##
-            //WriteTriangle(length, reverse);
             TriangleWrite(length, reverse, totalLength, cross);
             DiamondWrite(length, reverse, totalLength, cross);
             CrossWrite(length, reverse, totalLength, cross);
 
-
-            //            2 - 2 Or how about:
-            //     ##
-            //    ####
-            //   ######
-            //  ########
-            //  ########
-            //   ######
-            //    ####
-            //     ##   
-
-            //            2 - 3 Here’s an especially tricky one:
-            //  #            #
-            //   ##        ##
-            //    ###    ###
-            //     ########
-            //     ########
-            //    ###    ###
-            //   ##        ##
-            //  #            # 
         }
 
         private static void CrossWrite(int length, bool reverse, int totalLength, bool cross)
@@ -169,74 +143,6 @@ namespace TLsaPPurePuzzles
 
             }
         }
-
-        private static void WriteTriangle(int length, bool reverse)
-        {
-            length = 4;
-            reverse = false;
-            bool[] writeOrNot = new bool[length];
-
-            do
-            {
-                length = WriteResult(length, reverse, writeOrNot);
-            } while (length >= 0);
-        }
-
-        private static int WriteResult(int length, bool reverse, bool[] writeOrNot)
-        {
-            //int i = 0;
-            writeOrNot = SetWrite(length, writeOrNot);
-            //do
-            //{
-            //    foreach (var point in writeOrNot)
-            //    {
-            //        if (point) WriteHash();
-            //        else WriteSpace();
-            //    }
-
-            //    if (i == writeOrNot.Length) reverse = true;
-            //    if (!reverse) i++;
-            //    else i--;
-            //} while (i >= 0);
-            for (int i = writeOrNot.Length - 1; i >= 0; i--)
-            {
-                if (writeOrNot[i])
-                {
-                    WriteHash();
-                }
-                else WriteSpace();
-            }
-            for (int i = 0; i < writeOrNot.Length; i++)
-            {
-                if (writeOrNot[i])
-                {
-                    WriteHash();
-                }
-                else WriteSpace();
-            }
-            Console.WriteLine();
-
-            length--;
-            return length;
-
-        }
-
-        private static bool[] SetWrite(int length, bool[] writeOrNot)
-        {
-            int totalLength = writeOrNot.Length;
-            for (int i = 0; i < totalLength; i++)
-            {
-                if (i < length)
-                {
-                    writeOrNot[i] = true;
-                }
-                else
-                {
-                    writeOrNot[i] = false;
-                }
-            }
-            return writeOrNot;
-        }
         private static void WriteHash()
         {
             Console.Write('#');
@@ -246,31 +152,99 @@ namespace TLsaPPurePuzzles
             Console.Write(' ');
         }
 
-        //private static void WriteTest(int rounds)
+        //private static void WriteTriangle(int length, bool reverse)
         //{
-        //    for (int i = 0; i < rounds; i++)
-        //    {
-        //        WriteHash();
-        //    }
-        //    Console.WriteLine();
-
-        //    rounds--;
-        //    if (rounds == 0) return;
-        //    WriteTest(rounds);
-        //}
-
-
-        //private static void WriteTriangle(int i)
-        //{
-        //    i = 0;
-
+        //    length = 4;
+        //    reverse = false;
+        //    bool[] writeOrNot = new bool[length];
 
         //    do
         //    {
-
-
-        //    } while (i > 0);
+        //        length = WriteResult(length, reverse, writeOrNot);
+        //    } while (length >= 0);
         //}
+
+        //private static int WriteResult(int length, bool reverse, bool[] writeOrNot)
+        //{
+        //    //int i = 0;
+        //    writeOrNot = SetWrite(length, writeOrNot);
+        //    //do
+        //    //{
+        //    //    foreach (var point in writeOrNot)
+        //    //    {
+        //    //        if (point) WriteHash();
+        //    //        else WriteSpace();
+        //    //    }
+
+        //    //    if (i == writeOrNot.Length) reverse = true;
+        //    //    if (!reverse) i++;
+        //    //    else i--;
+        //    //} while (i >= 0);
+        //    for (int i = writeOrNot.Length - 1; i >= 0; i--)
+        //    {
+        //        if (writeOrNot[i])
+        //        {
+        //            WriteHash();
+        //        }
+        //        else WriteSpace();
+        //    }
+        //    for (int i = 0; i < writeOrNot.Length; i++)
+        //    {
+        //        if (writeOrNot[i])
+        //        {
+        //            WriteHash();
+        //        }
+        //        else WriteSpace();
+        //    }
+        //    Console.WriteLine();
+
+        //    length--;
+        //    return length;
+
+        //}
+
+        //private static bool[] SetWrite(int length, bool[] writeOrNot)
+        //{
+        //    int totalLength = writeOrNot.Length;
+        //    for (int i = 0; i < totalLength; i++)
+        //    {
+        //        if (i < length)
+        //        {
+        //            writeOrNot[i] = true;
+        //        }
+        //        else
+        //        {
+        //            writeOrNot[i] = false;
+        //        }
+        //    }
+        //    return writeOrNot;
+        //}
+
+        ////private static void WriteTest(int rounds)
+        ////{
+        ////    for (int i = 0; i < rounds; i++)
+        ////    {
+        ////        WriteHash();
+        ////    }
+        ////    Console.WriteLine();
+
+        ////    rounds--;
+        ////    if (rounds == 0) return;
+        ////    WriteTest(rounds);
+        ////}
+
+
+        ////private static void WriteTriangle(int i)
+        ////{
+        ////    i = 0;
+
+
+        ////    do
+        ////    {
+
+
+        ////    } while (i > 0);
+        ////}
     }
 
 }
