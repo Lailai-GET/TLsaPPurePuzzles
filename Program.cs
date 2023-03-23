@@ -132,13 +132,23 @@ namespace TLsaPPurePuzzles
         {
             if (cross)
             {
-                int difference = totalLength - length;
+                int j = length;
                 for (int i = totalLength; i >= 0; i--)
                 {
                     if (i < length) WriteHash();
-                    else WriteSpace();
+                    else
+                    {
+                        if (i > length) WriteSpace();
+                        if (j < length + 1 && length != totalLength)
+                        {
+                            WriteSpace();
+                        }
+                    }
+
+                    j--;
                 }
                 
+
             }
         }
 
@@ -146,13 +156,17 @@ namespace TLsaPPurePuzzles
         {
             if (cross)
             {
-                int difference = totalLength - length;
-                for(int i = difference;  i >= 0; i--) WriteSpace();
+                int k = 0;
+                for (int j = 0; j < length; j++) WriteSpace();
                 for (int i = 0; i < totalLength; i++)
                 {
                     if (i < length) WriteHash();
+                    else WriteSpace();
+                    if (k > length) WriteSpace();
+                    k++;
+
                 }
-                for(int i = 0; i < difference; i++) WriteSpace();
+
             }
         }
 
